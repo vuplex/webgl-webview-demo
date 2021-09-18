@@ -571,12 +571,14 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 1
+  webGLCompressionFormat: 2
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: VUPLEX_CCU;VUPLEX_STANDALONE
+    13: VUPLEX_CCU;VUPLEX_STANDALONE
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}

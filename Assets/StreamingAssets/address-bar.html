@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="transparent" content="true">
+  </head>
+  <body>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      input {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding: 5px 15px;
+        height: calc(30px - 10px);
+        width: calc(100% - 30px);
+        outline: none;
+      }
+    </style>
+    <input type="text" placeholder="Enter a URL">
+    <script>
+      const input = document.getElementsByTagName('input')[0];
+      input.addEventListener('keydown', event => {
+        if (event.code === 'Enter') {
+          window.vuplex.postMessage('url_submitted:' + input.value);
+        }
+      });
+
+      function addMessageHandler() {
+        window.vuplex.addEventListener('message', message => {
+          const messagePrefix = 'set_url:';
+          if (message.data.startsWith(messagePrefix)) {
+            const url = message.data.substr(messagePrefix.length);
+            input.value = url;
+          }
+        });
+      }
+
+      if (window.vuplex) {
+        addMessageHandler();
+      } else {
+        window.addEventListener('vuplexready', addMessageHandler);
+      }
+    </script>
+  </body>
+</html>
