@@ -3,15 +3,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using Vuplex.WebView;
-using Vuplex.WebView.Demos;
 
 class WebGLWebViewDemo : MonoBehaviour {
 
     public CanvasWebViewPrefab AddressBar;
     public CanvasWebViewPrefab MainWebView;
-
-    CanvasWebViewPrefab _focusedWebViewPrefab;
-    HardwareKeyboardListener _hardwareKeyboardListener;
 
     [Serializable]
     class IFrameTestResult {
@@ -22,6 +18,8 @@ class WebGLWebViewDemo : MonoBehaviour {
 
     async void Start() {
 
+        // Wait for the prefab to initialize because its WebView property is null until then.
+        // https://developer.vuplex.com/webview/WebViewPrefab#WaitUntilInitialized
         await AddressBar.WaitUntilInitialized();
 
         // Listen for a message from the address bar webview indicating that a URL was submitted.
@@ -36,32 +34,12 @@ class WebGLWebViewDemo : MonoBehaviour {
             }
         };
 
+        // Wait for the address bar UI to load.
+        // https://developer.vuplex.com/webview/IWebView#WaitForNextPageLoadToFinish
+        await AddressBar.WebView.WaitForNextPageLoadToFinish();
+
         // Initialize the address bar with the initial URL.
-        AddressBar.WebView.LoadProgressChanged += (sender, eventArgs) => {
-            if (eventArgs.Type == ProgressChangeType.Finished) {
-                AddressBar.WebView.PostMessage($"set_url:" + MainWebView.InitialUrl);
-            }
-        };
-
-        _setUpHardwareKeyboard();
-    }
-
-    void _handleWebViewClicked(object sender, ClickedEventArgs args) {
-
-        _focusedWebViewPrefab = (CanvasWebViewPrefab)sender;
-    }
-
-    // This code for setting up the hardware keyboard isn't needed for WebGL, but it
-    // is needed for running in the editor.
-    void _setUpHardwareKeyboard() {
-
-        _focusedWebViewPrefab = MainWebView;
-        MainWebView.Clicked += _handleWebViewClicked;
-        AddressBar.Clicked += _handleWebViewClicked;
-        _hardwareKeyboardListener = HardwareKeyboardListener.Instantiate();
-        _hardwareKeyboardListener.KeyDownReceived += (sender, eventArgs) => {
-            _focusedWebViewPrefab.WebView.HandleKeyboardInput(eventArgs.Value);
-        };
+        AddressBar.WebView.PostMessage($"set_url:" + MainWebView.InitialUrl);
     }
 
     IEnumerator _testIFrameUrl(string url) {
