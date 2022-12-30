@@ -25,7 +25,7 @@
     <script>
       const input = document.getElementsByTagName('input')[0];
       input.addEventListener('keydown', event => {
-        if (event.code === 'Enter') {
+        if (event.key === 'Enter') {
           window.vuplex.postMessage('url_submitted:' + input.value);
         }
       });
