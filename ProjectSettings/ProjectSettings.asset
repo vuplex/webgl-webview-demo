@@ -153,7 +153,9 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.webglwebviewdemo
     Standalone: com.DefaultCompany.webgl-webview-demo
+    iPhone: com.DefaultCompany.webgl-webview-demo
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -591,8 +593,8 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
   scriptingDefineSymbols:
-    1: VUPLEX_CCU;VUPLEX_STANDALONE
-    13: VUPLEX_CCU;VUPLEX_STANDALONE
+    1: 
+    13: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
