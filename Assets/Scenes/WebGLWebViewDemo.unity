@@ -292,11 +292,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
---- !u!224 &299973565 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224179541092979990, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
-  m_PrefabInstance: {fileID: 299973564}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &299973566 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114949863196309792, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
@@ -353,6 +348,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AddressBar: {fileID: 299973566}
   MainWebView: {fileID: 1971145933}
+--- !u!224 &895636226 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224179541092979990, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
+  m_PrefabInstance: {fileID: 1971145931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926712127
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +446,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!224 &961377989 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224179541092979990, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
+  m_PrefabInstance: {fileID: 299973564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1057777642
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,8 +625,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 299973565}
-  - {fileID: 1971145932}
+  - {fileID: 961377989}
+  - {fileID: 895636226}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -709,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114949863196309792, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
       propertyPath: InitialUrl
-      value: https://www.bing.com
+      value: https://www.bing.com/search?q=Vuplex+3D+WebView
       objectReference: {fileID: 0}
     - target: {fileID: 114949863196309792, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
       propertyPath: Native2DModeEnabled
@@ -841,11 +846,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
---- !u!224 &1971145932 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224179541092979990, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
-  m_PrefabInstance: {fileID: 1971145931}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1971145933 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114949863196309792, guid: 3e10f3b6a733e441c8352020cff2f1f6, type: 3}
