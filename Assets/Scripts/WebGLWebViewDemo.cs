@@ -16,7 +16,13 @@ class WebGLWebViewDemo : MonoBehaviour {
         public string url;
     }
 
-    async void Start() {
+    async void Awake() {
+
+        // Allow camera and microphone access to be requested. This is helpful for demonstrating
+        // camera and microphone access because Safari (both desktop and mobile) only allows camera
+        // and mic access if the origin is https or localhost (i.e. camera and mic access is blocked
+        // for a non-localhost http URL, like http://{ip_address}:{port}).
+        Web.SetCameraAndMicrophoneEnabled(true);
 
         // Wait for the prefab to initialize because its WebView property is null until then.
         // https://developer.vuplex.com/webview/WebViewPrefab#WaitUntilInitialized
